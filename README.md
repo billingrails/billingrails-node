@@ -35,8 +35,8 @@ const client = new Billingrails({
 });
 
 // List accounts
-const accountsResponse = await client.accounts.list();
-console.log(accountsResponse.accounts);
+const listResponse = await client.accounts.list();
+console.log(listResponse.accounts);
 
 // Create an account
 const createResponse = await client.accounts.create({
@@ -90,75 +90,6 @@ const client = new Billingrails({
 });
 ```
 
-## API Reference
-
-### Accounts
-
-#### List Accounts
-
-```typescript
-const accounts = await client.accounts.list({
-  page: 1,
-  page_size: 20,
-});
-```
-
-#### Create Account
-
-```typescript
-const account = await client.accounts.create({
-  name: 'John Doe',
-  email: 'john@example.com',
-  type: 'individual',
-  country: 'US',
-  default_currency: 'USD',
-  timezone: 'UTC',
-  billing_address: {
-    line1: '123 Main St',
-    city: 'San Francisco',
-    state: 'CA',
-    postal_code: '94105',
-    country: 'US',
-  },
-});
-```
-
-#### Retrieve Account
-
-```typescript
-const account = await client.accounts.retrieve('acc_123');
-```
-
-#### Update Account
-
-```typescript
-const account = await client.accounts.update('acc_123', {
-  name: 'Jane Doe',
-  email: 'jane@example.com',
-});
-```
-
-#### Get Account Balances
-
-```typescript
-const balances = await client.accounts.getBalances('acc_123');
-
-// Filter by currency
-const usdBalance = await client.accounts.getBalances('acc_123', {
-  currency: 'USD',
-});
-```
-
-#### Debit Account
-
-```typescript
-const result = await client.accounts.debit('acc_123', {
-  amount: 1000, // Amount in cents
-  currency: 'USD',
-  reference_id: 'ref_123',
-});
-```
-
 ## Error Handling
 
 The SDK throws `BillingrailsError` for API errors:
@@ -167,7 +98,7 @@ The SDK throws `BillingrailsError` for API errors:
 import { Billingrails, BillingrailsError } from 'billingrails';
 
 try {
-  const account = await client.accounts.retrieve('invalid_id');
+  const retrieveResponse = await client.accounts.retrieve('invalid_id');
 } catch (error) {
   if (error instanceof BillingrailsError) {
     console.error('API Error:', error.message);
@@ -190,7 +121,7 @@ const accountData: AccountCreate = {
   email: 'john@example.com',
 };
 
-const account: Account = await client.accounts.create(accountData);
+const createResponse = await client.accounts.create(accountData);
 ```
 
 ## Development
@@ -223,4 +154,4 @@ MIT
 
 ## Support
 
-For support, please contact [support@billingrails.com](mailto:support@billingrails.com) or visit our [documentation](https://docs.billingrails.com).
+For support, please contact [ugo@billingrails.com](mailto:ugo@billingrails.com) or visit our [documentation](https://docs.billingrails.com).
