@@ -35,32 +35,38 @@ const client = new Billingrails({
 });
 
 // List accounts
-const accounts = await client.accounts.list();
+const accountsResponse = await client.accounts.list();
+console.log(accountsResponse.accounts);
 
 // Create an account
-const account = await client.accounts.create({
+const createResponse = await client.accounts.create({
   name: 'John Doe',
   email: 'john@example.com',
   country: 'US',
   default_currency: 'USD',
 });
+console.log(createResponse.account);
 
 // Retrieve an account
-const retrievedAccount = await client.accounts.retrieve('acc_123');
+const retrieveResponse = await client.accounts.retrieve('acc_123');
+console.log(retrieveResponse.account);
 
 // Update an account
-const updatedAccount = await client.accounts.update('acc_123', {
+const updateResponse = await client.accounts.update('acc_123', {
   name: 'Jane Doe',
 });
+console.log(updateResponse.account);
 
 // Get account balances
-const balances = await client.accounts.getBalances('acc_123');
+const balancesResponse = await client.accounts.getBalances('acc_123');
+console.log(balancesResponse.balances);
 
 // Debit an account
-const debitResult = await client.accounts.debit('acc_123', {
+const debitResponse = await client.accounts.debit('acc_123', {
   amount: 1000, // Amount in cents
   currency: 'USD',
 });
+console.log(debitResponse.balances);
 ```
 
 ## Configuration
@@ -78,7 +84,7 @@ const client = new Billingrails({
 ```typescript
 const client = new Billingrails({
   apiKey: 'your-api-key',
-  baseURL: 'https://api.billingrails.com/v1', // Production URL
+  baseUrl: 'https://api.billingrails.com/v1', // Production URL
   timeout: 30000, // Request timeout in milliseconds
   maxRetries: 3, // Maximum number of retries for failed requests
 });

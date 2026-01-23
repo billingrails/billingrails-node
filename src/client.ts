@@ -21,7 +21,7 @@ export interface BillingrailsConfig {
   /** API key for authentication */
   apiKey: string;
   /** Base URL for the API (defaults to sandbox) */
-  baseURL?: string;
+  baseUrl?: string;
   /** Request timeout in milliseconds */
   timeout?: number;
   /** Maximum number of retries for failed requests */
@@ -57,7 +57,7 @@ export class Billingrails {
   constructor(config: BillingrailsConfig) {
     const {
       apiKey,
-      baseURL = 'https://api.sandbox.billingrails.com/v1',
+      baseUrl = 'https://api.sandbox.billingrails.com/v1',
       timeout = 30000,
       maxRetries = 3,
       axiosConfig = {},
@@ -71,7 +71,7 @@ export class Billingrails {
 
     // Create axios instance
     this.client = axios.create({
-      baseURL,
+      baseURL: baseUrl,
       timeout,
       headers: {
         'Content-Type': 'application/json',
