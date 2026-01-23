@@ -1,0 +1,53 @@
+// This file is auto-generated. Do not edit manually.
+
+import type { AxiosInstance } from 'axios';
+import type {
+  ProductCreate,
+  ProductListResponse,
+  ProductResponse,
+  ProductUpdate,
+} from '../types';
+
+/**
+ * Products resource
+ */
+export class Products {
+  constructor(private readonly client: AxiosInstance) {}
+
+  /**
+   * List products
+   * Retrieves a list of products.
+   */
+  async list(params?: Record<string, unknown>): Promise<ProductListResponse> {
+    const response = await this.client.get<ProductListResponse>(`/seller/products`, { params });
+    return response.data;
+  }
+
+  /**
+   * Create a product
+   * Creates a product.
+   */
+  async create(data: ProductCreate): Promise<ProductResponse> {
+    const response = await this.client.post<ProductResponse>(`/seller/products`, data);
+    return response.data;
+  }
+
+  /**
+   * Retrieve a product
+   * Retrieves a product by ID.
+   */
+  async retrieve(id: string, params?: Record<string, unknown>): Promise<ProductResponse> {
+    const response = await this.client.get<ProductResponse>(`/seller/products/${id}`, { params });
+    return response.data;
+  }
+
+  /**
+   * Update a product
+   * Updates a product.
+   */
+  async update(id: string, data: ProductUpdate): Promise<ProductResponse> {
+    const response = await this.client.put<ProductResponse>(`/seller/products/${id}`, data);
+    return response.data;
+  }
+
+}
