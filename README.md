@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/node/v/@billingrails/node.svg)](https://nodejs.org)
 
-Official Node.js SDK for [Billingrails](https://billingrails.com) - Flexible, composable, and intuitive API-first commerce platform.
+Official Node.js SDK for [Billingrails](https://billingrails.com)
 
 ## Installation
 

@@ -1,7 +1,7 @@
 /**
  * Billingrails Node.js SDK
  * 
- * Official SDK for the Billingrails API - Flexible, composable, and intuitive API-first commerce platform.
+ * Official SDK for the Billingrails API
  * 
  * @example
  * ```typescript
