@@ -124,30 +124,6 @@ const accountData: AccountCreate = {
 const createResponse = await client.accounts.create(accountData);
 ```
 
-## Development
-
-```bash
-# Install dependencies
-pnpm install
-
-# Build the SDK
-pnpm build
-
-# Run linter
-pnpm lint
-
-# Fix linting issues
-pnpm lint:fix
-
-# Type check
-pnpm typecheck
-```
-
-## Requirements
-
-- Node.js >= 18.0.0
-- TypeScript >= 5.0.0 (for TypeScript projects)
-
 ## License
 
 MIT
