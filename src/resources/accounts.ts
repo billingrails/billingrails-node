@@ -18,24 +18,6 @@ export class Accounts {
   constructor(private readonly client: AxiosInstance) {}
 
   /**
-   * Retrieve an account
-   * Retrieves an account by ID.
-   */
-  async retrieve(id: string, params?: Record<string, unknown>): Promise<AccountResponse> {
-    const response = await this.client.get<AccountResponse>(`/accounts/${id}`, { params });
-    return response.data;
-  }
-
-  /**
-   * Update an account
-   * Updates an account.
-   */
-  async update(id: string, data: AccountUpdate): Promise<AccountResponse> {
-    const response = await this.client.put<AccountResponse>(`/accounts/${id}`, data);
-    return response.data;
-  }
-
-  /**
    * List accounts
    * Retrieve a list of accounts.
    */
@@ -54,11 +36,20 @@ export class Accounts {
   }
 
   /**
-   * Debit balance
-   * Debits an account's balance.
+   * Retrieve an account
+   * Retrieves an account by ID.
    */
-  async debit(id: string, data: AccountDebit): Promise<AccountDebitResponse> {
-    const response = await this.client.post<AccountDebitResponse>(`/accounts/${id}/debit`, data);
+  async retrieve(id: string, params?: Record<string, unknown>): Promise<AccountResponse> {
+    const response = await this.client.get<AccountResponse>(`/accounts/${id}`, { params });
+    return response.data;
+  }
+
+  /**
+   * Update an account
+   * Updates an account.
+   */
+  async update(id: string, data: AccountUpdate): Promise<AccountResponse> {
+    const response = await this.client.put<AccountResponse>(`/accounts/${id}`, data);
     return response.data;
   }
 
@@ -68,6 +59,15 @@ export class Accounts {
    */
   async getBalances(id: string, params?: Record<string, unknown>): Promise<AccountBalancesResponse> {
     const response = await this.client.get<AccountBalancesResponse>(`/accounts/${id}/balances`, { params });
+    return response.data;
+  }
+
+  /**
+   * Debit balance
+   * Debits an account's balance.
+   */
+  async debit(id: string, data: AccountDebit): Promise<AccountDebitResponse> {
+    const response = await this.client.post<AccountDebitResponse>(`/accounts/${id}/debit`, data);
     return response.data;
   }
 

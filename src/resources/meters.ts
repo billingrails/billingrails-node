@@ -19,7 +19,7 @@ export class Meters {
    * Retrieves a list of meters.
    */
   async list(params?: Record<string, unknown>): Promise<MeterListResponse> {
-    const response = await this.client.get<MeterListResponse>(`/biller/meters`, { params });
+    const response = await this.client.get<MeterListResponse>(`/meters`, { params });
     return response.data;
   }
 
@@ -28,7 +28,7 @@ export class Meters {
    * Creates a meter.
    */
   async create(data: MeterCreate): Promise<MeterResponse> {
-    const response = await this.client.post<MeterResponse>(`/biller/meters`, data);
+    const response = await this.client.post<MeterResponse>(`/meters`, data);
     return response.data;
   }
 
@@ -37,7 +37,7 @@ export class Meters {
    * Retrieves meter by ID.
    */
   async retrieve(id: string, params?: Record<string, unknown>): Promise<MeterResponse> {
-    const response = await this.client.get<MeterResponse>(`/biller/meters/${id}`, { params });
+    const response = await this.client.get<MeterResponse>(`/meters/${id}`, { params });
     return response.data;
   }
 
@@ -46,7 +46,7 @@ export class Meters {
    * Updates a meter.
    */
   async update(id: string, data: MeterUpdate): Promise<MeterResponse> {
-    const response = await this.client.put<MeterResponse>(`/biller/meters/${id}`, data);
+    const response = await this.client.put<MeterResponse>(`/meters/${id}`, data);
     return response.data;
   }
 

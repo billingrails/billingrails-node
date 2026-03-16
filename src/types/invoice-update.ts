@@ -3,5 +3,5 @@
 import type { InvoiceInput } from './index';
 
 export interface InvoiceUpdate extends InvoiceInput {
-  line_items?: { description: string | null; quantity: number; unit_amount: number; id: string; name: string; }[];
+  line_items?: { id: string; name: string; description: string | null; quantity: number; unit_amount: number; }[];
 }

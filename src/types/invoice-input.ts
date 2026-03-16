@@ -7,4 +7,6 @@ export interface InvoiceInput {
   payment_method_id?: string | null;
   /** Date the invoice is due. */
   due_at?: string;
+  /** Items in the invoice. */
+  line_items?: { name: string; description: string | null; quantity: number; unit_amount: number; }[];
 }

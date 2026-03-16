@@ -1,24 +1,21 @@
 // This file is auto-generated. Do not edit manually.
 
-import type { Interval, Price } from './index';
+import type { PriceInput } from './index';
 
+/**
+ * Input for creating or updating a plan. Accepts either `price` or `prices` array (prices takes precedence).
+ */
 export interface PlanInput {
-  /** When to bill for this fee. */
-  bill_timing?: 'advance' | 'arrears';
-  /** Billing interval for the plan. */
-  interval?: Interval;
-  /** Price object for the plan. */
-  price?: Price;
-  /** Name that appears on invoices for this plan. */
-  invoice_name?: string;
-  /** Number of billing cycles for this fee. */
-  billing_cycles?: number;
-  /** Description of the plan. */
-  description?: string;
-  /** Number of free units included. */
-  free_units?: number;
-  /** Trial period of the plan in days. */
-  trial_period_days?: number;
   /** Name of the plan. */
   name?: string;
+  /** Description of the plan. */
+  description?: string;
+  /** Name that appears on invoices for this plan. */
+  invoice_name?: string;
+  /** Trial period of the plan in days. */
+  trial_period_days?: number;
+  /** Default price configuration for the plan. If both price and prices are provided, prices takes precedence. */
+  price?: PriceInput;
+  /** Additional prices for this plan. Takes precedence over the price field if both are provided. */
+  prices?: PriceInput[];
 }

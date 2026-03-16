@@ -1,18 +1,21 @@
-import axios from 'axios';
 import type { AxiosInstance, AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 import { handleApiError } from './errors';
 import { Accounts } from './resources/accounts';
+import { CheckoutSessions } from './resources/checkout-sessions';
 import { CreditGrants } from './resources/credit-grants';
 import { Discounts } from './resources/discounts';
 import { Events } from './resources/events';
-import { Subscriptions } from './resources/subscriptions';
-import { Meters } from './resources/meters';
-import { Plans } from './resources/plans';
-import { Products } from './resources/products';
-import { Orders } from './resources/orders';
+import { Fees } from './resources/fees';
 import { Invoices } from './resources/invoices';
+import { Meters } from './resources/meters';
+import { PaymentLinks } from './resources/payment-links';
 import { Payments } from './resources/payments';
-import { PaymentPages } from './resources/payment-pages';
+import { Plans } from './resources/plans';
+import { Prices } from './resources/prices';
+import { Subscriptions } from './resources/subscriptions';
+import { TaxRates } from './resources/tax-rates';
+
 
 /**
  * Configuration options for the Billingrails client
@@ -38,21 +41,21 @@ export class Billingrails {
   private readonly maxRetries: number;
 
   public readonly accounts: Accounts;
-  public readonly creditGrants: CreditGrants;
-  public readonly discounts: Discounts;
   public readonly invoices: Invoices;
   public readonly payments: Payments;
-  public readonly paymentPages: PaymentPages;
-  public readonly biller: {
-    events: Events;
-    meters: Meters;
-    plans: Plans;
-    subscriptions: Subscriptions;
-  };
-  public readonly seller: {
-    products: Products;
-    orders: Orders;
-  };
+  public readonly paymentLinks: PaymentLinks;
+  public readonly checkoutSessions: CheckoutSessions;
+  
+  public readonly subscriptions: Subscriptions;
+  public readonly plans: Plans;
+  public readonly fees: Fees;
+  public readonly prices: Prices;
+  public readonly events: Events;
+  public readonly meters: Meters;
+  
+  public readonly creditGrants: CreditGrants;
+  public readonly discounts: Discounts;
+  public readonly taxRates: TaxRates;
 
   constructor(config: BillingrailsConfig) {
     const {
@@ -119,21 +122,22 @@ export class Billingrails {
 
     // Initialize resources
     this.accounts = new Accounts(this.client);
-    this.creditGrants = new CreditGrants(this.client);
-    this.discounts = new Discounts(this.client);
     this.invoices = new Invoices(this.client);
     this.payments = new Payments(this.client);
-    this.paymentPages = new PaymentPages(this.client);
-    this.biller = {
-      events: new Events(this.client),
-      meters: new Meters(this.client),
-      plans: new Plans(this.client),
-      subscriptions: new Subscriptions(this.client),
-    };
-    this.seller = {
-      products: new Products(this.client),
-      orders: new Orders(this.client),
-    };
+    this.paymentLinks = new PaymentLinks(this.client);
+    this.checkoutSessions = new CheckoutSessions(this.client);
+
+    this.subscriptions = new Subscriptions(this.client);
+    this.plans = new Plans(this.client);
+    this.fees = new Fees(this.client);
+    this.prices = new Prices(this.client);
+    this.events = new Events(this.client);
+    this.meters = new Meters(this.client);
+  
+
+    this.creditGrants = new CreditGrants(this.client);
+    this.discounts = new Discounts(this.client);
+    this.taxRates = new TaxRates(this.client)
   }
 
   /**

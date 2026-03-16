@@ -14,24 +14,6 @@ export class CreditGrants {
   constructor(private readonly client: AxiosInstance) {}
 
   /**
-   * Expire credit grant
-   * Expires a credit grant.
-   */
-  async expire(id: string): Promise<CreditGrantResponse> {
-    const response = await this.client.post<CreditGrantResponse>(`/credit_grants/${id}/expire`, {});
-    return response.data;
-  }
-
-  /**
-   * Reverse credit grant transaction
-   * Reverses a credit grant usage.
-   */
-  async reverseTransaction(id: string, data: unknown): Promise<CreditGrantResponse> {
-    const response = await this.client.post<CreditGrantResponse>(`/credit_grants/${id}/reverse_transaction`, data);
-    return response.data;
-  }
-
-  /**
    * List credit grants
    * Retrieves a list of credit grants.
    */
@@ -50,6 +32,15 @@ export class CreditGrants {
   }
 
   /**
+   * Retrieve a credit grant
+   * Retrieves a credit grant by ID.
+   */
+  async retrieve(id: string, params?: Record<string, unknown>): Promise<CreditGrantResponse> {
+    const response = await this.client.get<CreditGrantResponse>(`/credit_grants/${id}`, { params });
+    return response.data;
+  }
+
+  /**
    * Apply credit grant
    * Applies a credit grant to an invoice or logs an external usage.
    */
@@ -59,11 +50,20 @@ export class CreditGrants {
   }
 
   /**
-   * Retrieve a credit grant
-   * Retrieves a credit grant by ID.
+   * Expire credit grant
+   * Expires a credit grant.
    */
-  async retrieve(id: string, params?: Record<string, unknown>): Promise<CreditGrantResponse> {
-    const response = await this.client.get<CreditGrantResponse>(`/credit_grants/${id}`, { params });
+  async expire(id: string): Promise<CreditGrantResponse> {
+    const response = await this.client.post<CreditGrantResponse>(`/credit_grants/${id}/expire`, {});
+    return response.data;
+  }
+
+  /**
+   * Reverse credit grant transaction
+   * Reverses a credit grant usage.
+   */
+  async reverseTransaction(id: string, data: unknown): Promise<CreditGrantResponse> {
+    const response = await this.client.post<CreditGrantResponse>(`/credit_grants/${id}/reverse_transaction`, data);
     return response.data;
   }
 

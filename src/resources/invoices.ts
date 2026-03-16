@@ -15,11 +15,20 @@ export class Invoices {
   constructor(private readonly client: AxiosInstance) {}
 
   /**
-   * Issue an invoice
-   * Issues an invoice.
+   * List invoices
+   * Retrieves a list of invoices.
    */
-  async issue(id: string, data: unknown): Promise<unknown> {
-    const response = await this.client.post<unknown>(`/invoices/${id}/issue`, data);
+  async list(params?: Record<string, unknown>): Promise<InvoiceListResponse> {
+    const response = await this.client.get<InvoiceListResponse>(`/invoices`, { params });
+    return response.data;
+  }
+
+  /**
+   * Create an invoice
+   * Creates an invoice.
+   */
+  async create(data: InvoiceCreate): Promise<InvoiceResponse> {
+    const response = await this.client.post<InvoiceResponse>(`/invoices`, data);
     return response.data;
   }
 
@@ -42,20 +51,11 @@ export class Invoices {
   }
 
   /**
-   * List invoices
-   * Retrieves a list of invoices.
+   * Issue an invoice
+   * Issues an invoice.
    */
-  async list(params?: Record<string, unknown>): Promise<InvoiceListResponse> {
-    const response = await this.client.get<InvoiceListResponse>(`/invoices`, { params });
-    return response.data;
-  }
-
-  /**
-   * Create an invoice
-   * Creates an invoice.
-   */
-  async create(data: InvoiceCreate): Promise<InvoiceResponse> {
-    const response = await this.client.post<InvoiceResponse>(`/invoices`, data);
+  async issue(id: string, data: unknown): Promise<unknown> {
+    const response = await this.client.post<unknown>(`/invoices/${id}/issue`, data);
     return response.data;
   }
 

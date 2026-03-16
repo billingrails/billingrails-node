@@ -13,20 +13,20 @@ export class Events {
   constructor(private readonly client: AxiosInstance) {}
 
   /**
-   * Ingest batch events
-   * Ingests batch events.
-   */
-  async ingestBatch(data: EventBatchInput): Promise<unknown> {
-    const response = await this.client.post<unknown>(`/biller/events/batch`, data);
-    return response.data;
-  }
-
-  /**
    * Ingest event
    * Ingests an event.
    */
   async ingest(data: EventInput): Promise<unknown> {
-    const response = await this.client.post<unknown>(`/biller/events/ingest`, data);
+    const response = await this.client.post<unknown>(`/events/ingest`, data);
+    return response.data;
+  }
+
+  /**
+   * Ingest batch events
+   * Ingests batch events.
+   */
+  async ingestBatch(data: EventBatchInput): Promise<unknown> {
+    const response = await this.client.post<unknown>(`/events/batch`, data);
     return response.data;
   }
 

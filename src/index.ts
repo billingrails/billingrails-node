@@ -34,14 +34,17 @@ export * from './types';
 
 // Export resources
 export { Accounts } from './resources/accounts';
+export { CheckoutSessions } from './resources/checkout-sessions';
 export { CreditGrants } from './resources/credit-grants';
 export { Discounts } from './resources/discounts';
 export { Events } from './resources/events';
+export { Fees } from './resources/fees';
 export { Invoices } from './resources/invoices';
-export { Payments } from './resources/payments';
-export { PaymentPages } from './resources/payment-pages';
 export { Meters } from './resources/meters';
+export { PaymentLinks } from './resources/payment-links';
+export { Payments } from './resources/payments';
 export { Plans } from './resources/plans';
+export { Prices } from './resources/prices';
 export { Subscriptions } from './resources/subscriptions';
-export { Products } from './resources/products';
-export { Orders } from './resources/orders';
+export { TaxRates } from './resources/tax-rates';
+

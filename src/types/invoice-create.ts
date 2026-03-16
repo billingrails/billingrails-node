@@ -7,6 +7,4 @@ export interface InvoiceCreate extends InvoiceInput {
   account_id: string;
   /** Currency of the invoice. */
   currency: string;
-  /** Items in the invoice. */
-  line_items: { quantity: number; name: string; description: string | null; unit_amount: number; }[];
 }

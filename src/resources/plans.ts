@@ -19,7 +19,7 @@ export class Plans {
    * Retrieves a list of plans.
    */
   async list(params?: Record<string, unknown>): Promise<PlanListResponse> {
-    const response = await this.client.get<PlanListResponse>(`/biller/plans`, { params });
+    const response = await this.client.get<PlanListResponse>(`/plans`, { params });
     return response.data;
   }
 
@@ -28,7 +28,7 @@ export class Plans {
    * Creates a plan.
    */
   async create(data: PlanCreate): Promise<PlanResponse> {
-    const response = await this.client.post<PlanResponse>(`/biller/plans`, data);
+    const response = await this.client.post<PlanResponse>(`/plans`, data);
     return response.data;
   }
 
@@ -37,7 +37,7 @@ export class Plans {
    * Retrieves plan by ID.
    */
   async retrieve(id: string, params?: Record<string, unknown>): Promise<PlanResponse> {
-    const response = await this.client.get<PlanResponse>(`/biller/plans/${id}`, { params });
+    const response = await this.client.get<PlanResponse>(`/plans/${id}`, { params });
     return response.data;
   }
 
@@ -46,7 +46,7 @@ export class Plans {
    * Updates a plan.
    */
   async update(id: string, data: PlanUpdate): Promise<PlanResponse> {
-    const response = await this.client.put<PlanResponse>(`/biller/plans/${id}`, data);
+    const response = await this.client.put<PlanResponse>(`/plans/${id}`, data);
     return response.data;
   }
 

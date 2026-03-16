@@ -1,6 +1,6 @@
 // This file is auto-generated. Do not edit manually.
 
-import type { SubscriptionCreate } from './index';
+import type { SubscriptionInput } from './index';
 
-export interface SubscriptionUpdate extends SubscriptionCreate {
+export interface SubscriptionUpdate extends SubscriptionInput {
 }

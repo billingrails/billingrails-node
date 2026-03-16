@@ -3,7 +3,7 @@
 import type { Response } from './index';
 
 export interface AccountBalancesResponse extends Response {
-  /** Balances by currency. */
-  balances?: { currency: string; available: number; }[];
   account_id?: string;
+  /** Balances by currency. */
+  balances?: { available: number; currency: string; }[];
 }
