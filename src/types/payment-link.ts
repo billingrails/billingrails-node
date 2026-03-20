@@ -19,6 +19,8 @@ export interface PaymentLink {
   url?: string;
   /** URL to redirect to after payment completion. */
   return_url?: string;
+  /** ID of the plan for subscription links. */
+  plan_id?: string | null;
   /** Timestamp indicating when the object was created. */
   created_at?: string;
 }

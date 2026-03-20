@@ -3,7 +3,7 @@
 import type { Interval } from './index';
 
 /**
- * Price configuration for a plan or fee.
+ * Price configuration for a product or fee.
  */
 export interface PriceInput {
   /** Amount in currency subunits (for flat, package, or tiered pricing). */

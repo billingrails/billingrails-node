@@ -9,8 +9,8 @@ export interface Subscription {
   status?: 'draft' | 'pending' | 'trialing' | 'active' | 'paused' | 'canceled' | 'expired';
   /** Billingrails account ID associated with the subscription. */
   account_id?: string;
-  /** Plan ID associated with the subscription. */
-  plan_id?: string;
+  /** Plan ID when subscription was created from a plan. */
+  plan_id?: string | null;
   /** Payment method ID associated with the subscription. */
   payment_method_id?: string;
   /** Currency of the subscription. */
@@ -40,5 +40,5 @@ export interface Subscription {
   /** Timestamp indicating when the object was created. */
   created_at?: string;
   /** List of items in the subscription. */
-  items?: { fee_id: string; plan_id: string; quantity: number; }[];
+  items?: { fee_id: string; product_id: string; quantity: number; }[];
 }

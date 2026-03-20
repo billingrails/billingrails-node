@@ -41,10 +41,11 @@ export { Events } from './resources/events';
 export { Fees } from './resources/fees';
 export { Invoices } from './resources/invoices';
 export { Meters } from './resources/meters';
+export { Plans } from './resources/plans';
 export { PaymentLinks } from './resources/payment-links';
 export { Payments } from './resources/payments';
-export { Plans } from './resources/plans';
 export { Prices } from './resources/prices';
+export { Products } from './resources/products';
 export { Subscriptions } from './resources/subscriptions';
 export { TaxRates } from './resources/tax-rates';
 

@@ -19,8 +19,8 @@ export interface CreditGrantCreate {
   description?: string | null;
   /** Date when the credit grant expires. */
   expires_at?: string | null;
-  /** Whether to create a payment link for the credit grant. Requires `integration_id`. */
-  with_payment_link?: boolean;
+  /** Initialize payment for the credit grant and return the providers payment URL. */
+  initiate_payment?: boolean;
   /** Integration ID for payment processing. */
   integration_id?: string;
   /** Payment methods to show on the payment link. */

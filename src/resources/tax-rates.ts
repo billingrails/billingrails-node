@@ -61,7 +61,7 @@ export class TaxRates {
 
   /**
    * Archive a tax rate
-   * Archives a tax rate. Sets status to archived.
+   * Archives a tax rate.
    */
   async archive(id: string): Promise<TaxRateResponse> {
     const response = await this.client.post<TaxRateResponse>(`/tax_rates/${id}/archive`, {});

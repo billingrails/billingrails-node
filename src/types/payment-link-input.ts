@@ -9,7 +9,7 @@ export interface PaymentLinkInput {
   status?: 'draft' | 'active' | 'archived';
   /** Description of the payment link. */
   description?: string | null;
-  /** ID of the plan associated with the payment link. Required if type is `subscription`. */
+  /** ID of the plan for subscription payment links. One of plan_id or product_id required when type is `subscription`. */
   plan_id?: string | null;
   /** URL-friendly identifier for the payment link. */
   slug?: string;

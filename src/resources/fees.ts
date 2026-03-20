@@ -61,7 +61,7 @@ export class Fees {
 
   /**
    * Archive a fee
-   * Archives a fee, making it inactive for new subscriptions.
+   * Archives a fee.
    */
   async archive(id: string): Promise<FeeResponse> {
     const response = await this.client.post<FeeResponse>(`/fees/${id}/archive`, {});
@@ -70,9 +70,9 @@ export class Fees {
 
   /**
    * Unarchive a fee
-   * Restores an archived fee to active status.
+   * Restores an archived fee.
    */
-  async undoArchive(id: string): Promise<FeeResponse> {
+  async unarchive(id: string): Promise<FeeResponse> {
     const response = await this.client.post<FeeResponse>(`/fees/${id}/unarchive`, {});
     return response.data;
   }

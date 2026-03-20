@@ -25,5 +25,5 @@ export interface Payment {
   /** Status of the payment. */
   status?: 'pending' | 'succeeded' | 'failed' | 'canceled';
   /** Reason for failure when status is failed. */
-  failure_reason?: 'absent_payment_method' | 'invalid_payment_method' | 'gateway_error' | 'payment_link_generation_failed';
+  failure_reason?: 'absent_payment_method' | 'invalid_payment_method' | 'gateway_error' | 'payment_url_generation_failed';
 }

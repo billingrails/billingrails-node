@@ -51,7 +51,7 @@ export class Prices {
 
   /**
    * Archive a price
-   * Archives a price, making it inactive for new subscriptions.
+   * Archives a price.
    */
   async archive(id: string): Promise<PriceResponse> {
     const response = await this.client.post<PriceResponse>(`/prices/${id}/archive`, {});
@@ -60,9 +60,9 @@ export class Prices {
 
   /**
    * Unarchive a price
-   * Restores an archived price to active status.
+   * Restores an archived price.
    */
-  async undoArchive(id: string): Promise<PriceResponse> {
+  async unarchive(id: string): Promise<PriceResponse> {
     const response = await this.client.post<PriceResponse>(`/prices/${id}/unarchive`, {});
     return response.data;
   }

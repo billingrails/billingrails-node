@@ -26,8 +26,8 @@ export class CreditGrants {
    * Create a credit grant
    * Creates a credit grant.
    */
-  async create(data: CreditGrantCreate): Promise<CreditGrantResponse> {
-    const response = await this.client.post<CreditGrantResponse>(`/credit_grants`, data);
+  async create(data: CreditGrantCreate): Promise<unknown> {
+    const response = await this.client.post<unknown>(`/credit_grants`, data);
     return response.data;
   }
 

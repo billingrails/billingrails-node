@@ -13,10 +13,12 @@ export interface CheckoutSessionCreate {
   integration_id?: string | null;
   /** URL to redirect after payment completion. */
   return_url?: string | null;
-  /** If true, creates a payment and returns a payment link along with the checkout session. */
-  with_payment_link?: boolean;
+  /** Directly initialize payment for the checkout and return the providers payment URL. */
+  initiate_payment?: boolean;
   /** Allowed payment methods. */
   allowed_payment_methods?: string[];
+  /** If true, creates a preview checkout session for testing purposes. */
+  preview?: boolean;
   /** Line items for the checkout session. */
   line_items: { name: string; description: string | null; quantity: number; unit_amount: number; }[];
   /** Discounts to apply to the checkout session. */

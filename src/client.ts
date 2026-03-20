@@ -13,6 +13,7 @@ import { PaymentLinks } from './resources/payment-links';
 import { Payments } from './resources/payments';
 import { Plans } from './resources/plans';
 import { Prices } from './resources/prices';
+import { Products } from './resources/products';
 import { Subscriptions } from './resources/subscriptions';
 import { TaxRates } from './resources/tax-rates';
 
@@ -47,6 +48,7 @@ export class Billingrails {
   public readonly checkoutSessions: CheckoutSessions;
   
   public readonly subscriptions: Subscriptions;
+  public readonly products: Products;
   public readonly plans: Plans;
   public readonly fees: Fees;
   public readonly prices: Prices;
@@ -128,9 +130,10 @@ export class Billingrails {
     this.checkoutSessions = new CheckoutSessions(this.client);
 
     this.subscriptions = new Subscriptions(this.client);
-    this.plans = new Plans(this.client);
+    this.products = new Products(this.client);
     this.fees = new Fees(this.client);
     this.prices = new Prices(this.client);
+    this.plans = new Plans(this.client);
     this.events = new Events(this.client);
     this.meters = new Meters(this.client);
   

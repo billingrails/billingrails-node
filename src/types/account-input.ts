@@ -22,7 +22,7 @@ export interface AccountInput {
   /** Billing address of the account. */
   billing_address?: Address;
   /** Invoice settings for the account. */
-  invoice_settings?: { grace_period_days: number; net_term_days: number; number_prefix: string; };
+  invoice_settings?: { grace_period_days: number; net_term_days: number; number_prefix: string; locale: string; };
   /** Key-value pairs that can be used to store additional information. */
   metadata?: Record<string, unknown>;
 }
