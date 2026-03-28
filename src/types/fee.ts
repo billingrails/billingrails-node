@@ -13,8 +13,6 @@ export interface Fee {
   code?: string;
   /** Description of the fee. */
   description?: string;
-  /** Product ID associated with the fee. */
-  product_id?: string;
   /** Status of the fee. */
   status?: 'active' | 'archived';
   /** Invoice name of the fee. */

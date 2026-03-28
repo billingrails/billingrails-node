@@ -1,7 +1,7 @@
 // This file is auto-generated. Do not edit manually.
 
 export interface SubscriptionInput {
-  /** Plan ID. When set, subscription is built from the plan's items. Mutually exclusive with product_id for new subscriptions. */
+  /** Plan ID. When set, subscription is built from the plan's items. */
   plan_id?: string | null;
   /** Product ID (legacy). Use plan_id or items for new subscriptions. */
   product_id?: string | null;

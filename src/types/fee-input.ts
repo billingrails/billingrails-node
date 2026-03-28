@@ -10,8 +10,6 @@ export interface FeeInput {
   name?: string;
   /** Unique code for the fee. */
   code?: string;
-  /** Product ID or code associated with the fee. */
-  product_id?: string;
   /** Description of the fee. */
   description?: string | null;
   /** Name that appears on invoices for this fee. */
