@@ -1,51 +1,34 @@
-/**
- * Billingrails Node.js SDK
- * 
- * Official SDK for the Billingrails API
- * 
- * @example
- * ```typescript
- * import { Billingrails } from 'billingrails';
- * 
- * const client = new Billingrails({
- *   apiKey: 'your-api-key',
- * });
- * 
- * // List accounts
- * const accounts = await client.accounts.list();
- * 
- * // Create an account
- * const account = await client.accounts.create({
- *   name: 'John Doe',
- *   email: 'john@example.com',
- * });
- * ```
- */
+// Billingrails Node SDK.
 
-// Export main client
-export { Billingrails } from './client';
-export type { BillingrailsConfig } from './client';
+export { Billingrails, type BillingrailsConfig } from './client';
+export {
+  BillingrailsError,
+  BillingrailsConnectionError,
+  BillingrailsApiError,
+  BillingrailsInvalidRequestError,
+  BillingrailsAuthenticationError,
+  BillingrailsNotFoundError,
+  BillingrailsRateLimitError,
+  BillingrailsServerError,
+  RETRYABLE_HTTP_STATUSES,
+  billingrailsErrorFromResponse,
+  handleApiError,
+  shouldRetryStatus,
+} from './errors';
 
-// Export errors
-export { BillingrailsError } from './errors';
-
-// Export all types
 export * from './types';
 
-// Export resources
 export { Accounts } from './resources/accounts';
 export { CheckoutSessions } from './resources/checkout-sessions';
-export { CreditGrants } from './resources/credit-grants';
-export { Discounts } from './resources/discounts';
 export { Events } from './resources/events';
-export { Fees } from './resources/fees';
-export { Invoices } from './resources/invoices';
-export { Meters } from './resources/meters';
 export { Plans } from './resources/plans';
-export { PaymentLinks } from './resources/payment-links';
-export { Payments } from './resources/payments';
-export { Prices } from './resources/prices';
+export { Meters } from './resources/meters';
 export { Products } from './resources/products';
 export { Subscriptions } from './resources/subscriptions';
 export { TaxRates } from './resources/tax-rates';
-
+export { CreditGrants } from './resources/credit-grants';
+export { Discounts } from './resources/discounts';
+export { Invoices } from './resources/invoices';
+export { Payments } from './resources/payments';
+export { Prices } from './resources/prices';
+export { PaymentLinks } from './resources/payment-links';

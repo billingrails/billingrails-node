@@ -7,7 +7,7 @@ export interface Price {
   object?: 'price';
   /** ID of the object. */
   id?: string;
-  /** Amount in currency subunits (for flat, package, or tiered pricing). */
+  /** Amount in currency subunits (for flat, package, or per-unit pricing). Supports fractional subunits for per-unit rates. */
   amount?: number | null;
   /** Currency code. */
   currency?: string;

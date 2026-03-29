@@ -9,7 +9,7 @@ export interface CheckoutSessionLineItem {
   description?: string | null;
   /** Quantity of the item. */
   quantity?: number;
-  /** Unit amount in smallest currency unit. */
+  /** Unit amount in smallest currency unit (may be fractional). */
   unit_amount?: number;
   /** Total amount for the line item. */
   total_amount?: number;

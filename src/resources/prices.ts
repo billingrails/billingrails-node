@@ -3,6 +3,7 @@
 import type { AxiosInstance } from 'axios';
 import type {
   PriceCreate,
+  PriceListResponse,
   PriceResponse,
   PriceUpdate,
 } from '../types';
@@ -12,6 +13,15 @@ import type {
  */
 export class Prices {
   constructor(private readonly client: AxiosInstance) {}
+
+  /**
+   * List prices
+   * Retrieves a paginated list of prices.
+   */
+  async list(params?: Record<string, unknown>): Promise<PriceListResponse> {
+    const response = await this.client.get<PriceListResponse>(`/prices`, { params });
+    return response.data;
+  }
 
   /**
    * Create a price

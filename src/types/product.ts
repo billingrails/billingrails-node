@@ -1,6 +1,6 @@
 // This file is auto-generated. Do not edit manually.
 
-import type { Fee, Interval, Price } from './index';
+import type { Interval, Price } from './index';
 
 export interface Product {
   /** Represents the object's type. */
@@ -23,6 +23,4 @@ export interface Product {
   interval?: Interval;
   /** Default price for the product. */
   price?: Price;
-  /** Fees associated with the product. */
-  fees?: Fee[];
 }

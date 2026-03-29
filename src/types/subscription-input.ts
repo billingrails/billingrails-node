@@ -13,6 +13,6 @@ export interface SubscriptionInput {
   payment_method_id?: string | null;
   /** Billing cycle type of the subscription. */
   billing_cycle_type?: 'anniversary' | 'calendar';
-  /** Modify fee quantities for the subscription plans and fees. */
-  items?: { fee_id: string | null; product_id: string | null; price_id: string | null; quantity: number; }[];
+  /** Modify product quantities for the subscription plans. */
+  items?: { product_id: string | null; price_id: string | null; quantity: number; }[];
 }

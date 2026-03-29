@@ -11,7 +11,7 @@ export interface InvoiceLineItem {
   description?: string | null;
   /** Quantity of the invoice item. */
   quantity?: number;
-  /** Unit amount of the invoice item. */
+  /** Unit amount of the invoice item (smallest currency unit; may be fractional). */
   unit_amount?: number;
   /** Subtotal amount of the invoice item. */
   subtotal_amount?: number;

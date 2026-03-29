@@ -40,5 +40,5 @@ export interface Subscription {
   /** Timestamp indicating when the object was created. */
   created_at?: string;
   /** List of items in the subscription. */
-  items?: { fee_id: string; product_id: string; quantity: number; }[];
+  items?: { product_id: string; quantity: number; }[];
 }

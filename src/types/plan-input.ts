@@ -5,5 +5,5 @@ export interface PlanInput {
   description?: string | null;
   currency?: string;
   trial_period_days?: number | null;
-  items?: { product_id: string | null; fee_id: string | null; price_id: string; }[];
+  items?: { product_id: string | null; price_id: string; }[];
 }

@@ -1,12 +1,11 @@
-import type { AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosInstance, AxiosRequestConfig, InternalAxiosRequestConfig } from 'axios';
 import axios from 'axios';
-import { handleApiError } from './errors';
+import { handleApiError, shouldRetryStatus } from './errors';
 import { Accounts } from './resources/accounts';
 import { CheckoutSessions } from './resources/checkout-sessions';
 import { CreditGrants } from './resources/credit-grants';
 import { Discounts } from './resources/discounts';
 import { Events } from './resources/events';
-import { Fees } from './resources/fees';
 import { Invoices } from './resources/invoices';
 import { Meters } from './resources/meters';
 import { PaymentLinks } from './resources/payment-links';
@@ -17,6 +16,7 @@ import { Products } from './resources/products';
 import { Subscriptions } from './resources/subscriptions';
 import { TaxRates } from './resources/tax-rates';
 
+type RetryRequestConfig = InternalAxiosRequestConfig & { __attempt?: number };
 
 /**
  * Configuration options for the Billingrails client
@@ -28,7 +28,11 @@ export interface BillingrailsConfig {
   baseUrl?: string;
   /** Request timeout in milliseconds */
   timeout?: number;
-  /** Maximum number of retries for failed requests */
+  /**
+   * Maximum HTTP attempts per call (including the first) when the server returns
+   * a retryable status (see `RETRYABLE_HTTP_STATUSES` in `./errors`). Connection
+   * and transport errors are not retried.
+   */
   maxRetries?: number;
   /** Additional axios configuration */
   axiosConfig?: AxiosRequestConfig;
@@ -46,15 +50,14 @@ export class Billingrails {
   public readonly payments: Payments;
   public readonly paymentLinks: PaymentLinks;
   public readonly checkoutSessions: CheckoutSessions;
-  
+
   public readonly subscriptions: Subscriptions;
   public readonly products: Products;
   public readonly plans: Plans;
-  public readonly fees: Fees;
   public readonly prices: Prices;
   public readonly events: Events;
   public readonly meters: Meters;
-  
+
   public readonly creditGrants: CreditGrants;
   public readonly discounts: Discounts;
   public readonly taxRates: TaxRates;
@@ -100,22 +103,23 @@ export class Billingrails {
     this.client.interceptors.response.use(
       (response) => response,
       async (error) => {
-        // Handle retries for specific status codes
-        const config = error.config;
-        const retryCount = config.__retryCount || 0;
+        const cfg = error.config as RetryRequestConfig | undefined;
+        if (!cfg) {
+          throw handleApiError(error);
+        }
 
-        if (
-          retryCount < this.maxRetries &&
-          error.response?.status &&
-          [429, 500, 502, 503, 504].includes(error.response.status)
-        ) {
-          config.__retryCount = retryCount + 1;
+        const attempt = cfg.__attempt ?? 0;
+        const status = error.response?.status;
+        const canRetry =
+          attempt < this.maxRetries - 1 &&
+          status !== undefined &&
+          shouldRetryStatus(status);
 
-          // Exponential backoff
-          const delay = Math.min(1000 * 2 ** retryCount, 10000);
-          await new Promise((resolve) => setTimeout(resolve, delay));
-
-          return this.client(config);
+        if (canRetry) {
+          cfg.__attempt = attempt + 1;
+          const delayMs = 1000 * 2 ** attempt;
+          await new Promise((resolve) => setTimeout(resolve, delayMs));
+          return this.client(cfg);
         }
 
         throw handleApiError(error);
@@ -131,16 +135,14 @@ export class Billingrails {
 
     this.subscriptions = new Subscriptions(this.client);
     this.products = new Products(this.client);
-    this.fees = new Fees(this.client);
     this.prices = new Prices(this.client);
     this.plans = new Plans(this.client);
     this.events = new Events(this.client);
     this.meters = new Meters(this.client);
-  
 
     this.creditGrants = new CreditGrants(this.client);
     this.discounts = new Discounts(this.client);
-    this.taxRates = new TaxRates(this.client)
+    this.taxRates = new TaxRates(this.client);
   }
 
   /**
