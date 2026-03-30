@@ -22,8 +22,6 @@ export interface PriceInput {
   tiers?: { unit_amount: number; flat_amount: number; max_units: number | null; }[];
   /** Billing interval for this price. */
   interval?: Interval;
-  /** Number of billing cycles for this price. */
-  billing_cycles?: number | null;
   /** When to bill for this price. */
   bill_timing?: 'advance' | 'arrears';
   /** Number of free units included per billing cycle. */

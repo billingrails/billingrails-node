@@ -16,7 +16,7 @@ export interface DiscountInput {
   /** Whether discount can be applied to multiple billing periods. */
   recurring?: boolean;
   /** Maximum number of billing periods discount can recur (null = forever). */
-  max_recurring_intervals?: number | null;
+  max_billing_cycles?: number | null;
   /** Maximum number of redemptions across all accounts. */
   max_redemptions?: number | null;
   /** Maximum number of redemptions per account. */
