@@ -11,8 +11,8 @@ import type {
  */
 export class Events {
   constructor(private readonly client: AxiosInstance) {}
-
-  /**
+	
+	/**
    * Ingest event
    * Ingests an event.
    */
@@ -20,8 +20,8 @@ export class Events {
     const response = await this.client.post<unknown>(`/events/ingest`, data);
     return response.data;
   }
-
-  /**
+	
+	/**
    * Ingest batch events
    * Ingests batch events.
    */
@@ -29,5 +29,5 @@ export class Events {
     const response = await this.client.post<unknown>(`/events/batch`, data);
     return response.data;
   }
-
+	
 }

@@ -13,8 +13,8 @@ import type {
  */
 export class Invoices {
   constructor(private readonly client: AxiosInstance) {}
-
-  /**
+	
+	/**
    * List invoices
    * Retrieves a list of invoices.
    */
@@ -22,8 +22,8 @@ export class Invoices {
     const response = await this.client.get<InvoiceListResponse>(`/invoices`, { params });
     return response.data;
   }
-
-  /**
+	
+	/**
    * Create an invoice
    * Creates an invoice.
    */
@@ -31,8 +31,8 @@ export class Invoices {
     const response = await this.client.post<InvoiceResponse>(`/invoices`, data);
     return response.data;
   }
-
-  /**
+	
+	/**
    * Retrieve invoice
    * Retrieves an invoice by ID.
    */
@@ -40,8 +40,8 @@ export class Invoices {
     const response = await this.client.get<InvoiceResponse>(`/invoices/${id}`, { params });
     return response.data;
   }
-
-  /**
+	
+	/**
    * Update an invoice
    * Updates an invoice.
    */
@@ -49,8 +49,8 @@ export class Invoices {
     const response = await this.client.put<InvoiceResponse>(`/invoices/${id}`, data);
     return response.data;
   }
-
-  /**
+	
+	/**
    * Issue an invoice
    * Issues an invoice.
    */
@@ -58,5 +58,5 @@ export class Invoices {
     const response = await this.client.post<unknown>(`/invoices/${id}/issue`, data);
     return response.data;
   }
-
+	
 }

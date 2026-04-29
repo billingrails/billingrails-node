@@ -13,8 +13,8 @@ import type {
  */
 export class Discounts {
   constructor(private readonly client: AxiosInstance) {}
-
-  /**
+	
+	/**
    * List discounts
    * Retrieve a list of discounts.
    */
@@ -22,8 +22,8 @@ export class Discounts {
     const response = await this.client.get<DiscountListResponse>(`/discounts`, { params });
     return response.data;
   }
-
-  /**
+	
+	/**
    * Create a discount
    * Creates a discount.
    */
@@ -31,8 +31,8 @@ export class Discounts {
     const response = await this.client.post<DiscountResponse>(`/discounts`, data);
     return response.data;
   }
-
-  /**
+	
+	/**
    * Retrieve discount
    * Retrieves a discount by ID.
    */
@@ -40,8 +40,8 @@ export class Discounts {
     const response = await this.client.get<DiscountResponse>(`/discounts/${id}`, { params });
     return response.data;
   }
-
-  /**
+	
+	/**
    * Update a discount
    * Updates a discount.
    */
@@ -49,5 +49,5 @@ export class Discounts {
     const response = await this.client.put<DiscountResponse>(`/discounts/${id}`, data);
     return response.data;
   }
-
+	
 }

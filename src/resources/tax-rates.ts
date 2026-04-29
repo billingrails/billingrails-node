@@ -13,8 +13,8 @@ import type {
  */
 export class TaxRates {
   constructor(private readonly client: AxiosInstance) {}
-
-  /**
+	
+	/**
    * List tax rates
    * Retrieve a list of tax rates.
    */
@@ -22,8 +22,8 @@ export class TaxRates {
     const response = await this.client.get<TaxRateListResponse>(`/tax_rates`, { params });
     return response.data;
   }
-
-  /**
+	
+	/**
    * Create a tax rate
    * Creates a tax rate.
    */
@@ -31,8 +31,8 @@ export class TaxRates {
     const response = await this.client.post<TaxRateResponse>(`/tax_rates`, data);
     return response.data;
   }
-
-  /**
+	
+	/**
    * Retrieve tax rate
    * Retrieves a tax rate by ID.
    */
@@ -40,8 +40,8 @@ export class TaxRates {
     const response = await this.client.get<TaxRateResponse>(`/tax_rates/${id}`, { params });
     return response.data;
   }
-
-  /**
+	
+	/**
    * Update a tax rate
    * Updates a tax rate.
    */
@@ -49,8 +49,8 @@ export class TaxRates {
     const response = await this.client.put<TaxRateResponse>(`/tax_rates/${id}`, data);
     return response.data;
   }
-
-  /**
+	
+	/**
    * Delete a tax rate
    * Deletes a tax rate.
    */
@@ -58,8 +58,8 @@ export class TaxRates {
     const response = await this.client.delete<unknown>(`/tax_rates/${id}`);
     return response.data;
   }
-
-  /**
+	
+	/**
    * Archive a tax rate
    * Archives a tax rate.
    */
@@ -67,5 +67,5 @@ export class TaxRates {
     const response = await this.client.post<TaxRateResponse>(`/tax_rates/${id}/archive`, {});
     return response.data;
   }
-
+	
 }

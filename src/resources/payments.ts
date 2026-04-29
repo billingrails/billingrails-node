@@ -12,8 +12,8 @@ import type {
  */
 export class Payments {
   constructor(private readonly client: AxiosInstance) {}
-
-  /**
+	
+	/**
    * List payments
    * Retrieves a list of payments.
    */
@@ -21,8 +21,8 @@ export class Payments {
     const response = await this.client.get<PaymentListResponse>(`/payments`, { params });
     return response.data;
   }
-
-  /**
+	
+	/**
    * Create a payment
    * Create an online or offline payment for an invoice, payment request, or credit grant.
    */
@@ -30,8 +30,8 @@ export class Payments {
     const response = await this.client.post<unknown>(`/payments`, data);
     return response.data;
   }
-
-  /**
+	
+	/**
    * Retrieve payment
    * Retrieves a payment by ID.
    */
@@ -39,5 +39,5 @@ export class Payments {
     const response = await this.client.get<PaymentResponse>(`/payments/${id}`, { params });
     return response.data;
   }
-
+	
 }

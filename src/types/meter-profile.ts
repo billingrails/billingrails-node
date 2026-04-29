@@ -7,7 +7,7 @@ export interface MeterProfile {
   name: string;
   /** Code identifier of the meter profile. */
   code: string;
-  /** Whether the profile tracks recurring usage. */
+  /** Defines if the meter is persisted billing period over billing period. */
   recurring: boolean;
   /** Specifies the method for aggregating matching events. */
   aggregation_method: 'sum' | 'count' | 'count_unique' | 'min' | 'max' | 'latest';

@@ -13,8 +13,8 @@ import type {
  */
 export class Prices {
   constructor(private readonly client: AxiosInstance) {}
-
-  /**
+	
+	/**
    * List prices
    * Retrieves a paginated list of prices.
    */
@@ -22,8 +22,8 @@ export class Prices {
     const response = await this.client.get<PriceListResponse>(`/prices`, { params });
     return response.data;
   }
-
-  /**
+	
+	/**
    * Create a price
    * Creates a price.
    */
@@ -31,8 +31,8 @@ export class Prices {
     const response = await this.client.post<PriceResponse>(`/prices`, data);
     return response.data;
   }
-
-  /**
+	
+	/**
    * Retrieve a price
    * Retrieves a price by ID.
    */
@@ -40,8 +40,8 @@ export class Prices {
     const response = await this.client.get<PriceResponse>(`/prices/${id}`, { params });
     return response.data;
   }
-
-  /**
+	
+	/**
    * Update a price
    * Updates a price by ID.
    */
@@ -49,8 +49,8 @@ export class Prices {
     const response = await this.client.put<PriceResponse>(`/prices/${id}`, data);
     return response.data;
   }
-
-  /**
+	
+	/**
    * Delete a price
    * Deletes a price by ID.
    */
@@ -58,8 +58,8 @@ export class Prices {
     const response = await this.client.delete<unknown>(`/prices/${id}`);
     return response.data;
   }
-
-  /**
+	
+	/**
    * Archive a price
    * Archives a price.
    */
@@ -67,8 +67,8 @@ export class Prices {
     const response = await this.client.post<PriceResponse>(`/prices/${id}/archive`, {});
     return response.data;
   }
-
-  /**
+	
+	/**
    * Unarchive a price
    * Restores an archived price.
    */
@@ -76,5 +76,14 @@ export class Prices {
     const response = await this.client.post<PriceResponse>(`/prices/${id}/unarchive`, {});
     return response.data;
   }
-
+	
+	/**
+   * Duplicate a price
+   * Creates a new price with the same configuration as an existing product or fee price.
+   */
+  async duplicate(id: string): Promise<PriceResponse> {
+    const response = await this.client.post<PriceResponse>(`/prices/${id}/duplicate`, {});
+    return response.data;
+  }
+	
 }

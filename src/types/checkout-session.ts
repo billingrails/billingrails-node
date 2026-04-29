@@ -1,6 +1,6 @@
 // This file is auto-generated. Do not edit manually.
 
-import type { CheckoutSessionLineItem } from './index';
+import type { CheckoutSessionLineItem, TaxAmountDetails } from './index';
 
 export interface CheckoutSession {
   /** Represents the object's type. */
@@ -17,8 +17,10 @@ export interface CheckoutSession {
   subtotal_amount?: number;
   /** Total discount amount applied. */
   discount_amount?: number;
-  /** Total tax amount. */
-  tax_amount?: number;
+  /** Total discount amount percentage applied. */
+  discount_amount_percentage?: number | null;
+  /** Tax amount details. */
+  tax_amount_details?: TaxAmountDetails;
   /** Total amount to be charged. */
   total_amount?: number;
   /** ID of the account associated with the checkout session. */

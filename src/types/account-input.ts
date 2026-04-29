@@ -9,14 +9,8 @@ export interface AccountInput {
   name?: string;
   /** Email of the account. */
   email?: string;
-  /** Country of the account. */
-  country?: string;
-  /** Default currency of the account. */
-  default_currency?: string;
   /** External unique reference ID or identifier for this account. */
   external_id?: string;
-  /** Timezone for the account. */
-  timezone?: string;
   /** Shipping address of the account. */
   shipping_address?: Address;
   /** Billing address of the account. */

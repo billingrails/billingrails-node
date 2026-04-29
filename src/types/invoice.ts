@@ -1,6 +1,6 @@
 // This file is auto-generated. Do not edit manually.
 
-import type { InvoiceLineItem, PaymentRequest } from './index';
+import type { InvoiceLineItem, PaymentRequest, TaxAmountDetails } from './index';
 
 export interface Invoice {
   /** Represents the object's type. */
@@ -29,6 +29,12 @@ export interface Invoice {
   total_amount?: number;
   /** Amount written off from the invoice. */
   write_off_amount?: number;
+  /** Total discount amount applied. */
+  discount_amount?: number | null;
+  /** Total discount amount percentage applied. */
+  discount_amount_percentage?: number | null;
+  /** Tax amount details. */
+  tax_amount_details?: TaxAmountDetails;
   /** Payment collection method for the invoice. */
   collection_method?: 'manual' | 'automatic' | 'send_invoice';
   /** Credit amount applied to the invoice. */

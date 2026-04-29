@@ -13,8 +13,8 @@ import type {
  */
 export class Meters {
   constructor(private readonly client: AxiosInstance) {}
-
-  /**
+	
+	/**
    * List meters
    * Retrieves a list of meters.
    */
@@ -22,8 +22,8 @@ export class Meters {
     const response = await this.client.get<MeterListResponse>(`/meters`, { params });
     return response.data;
   }
-
-  /**
+	
+	/**
    * Create a meter
    * Creates a meter.
    */
@@ -31,8 +31,8 @@ export class Meters {
     const response = await this.client.post<MeterResponse>(`/meters`, data);
     return response.data;
   }
-
-  /**
+	
+	/**
    * Retrieve a meter
    * Retrieves meter by ID.
    */
@@ -40,8 +40,8 @@ export class Meters {
     const response = await this.client.get<MeterResponse>(`/meters/${id}`, { params });
     return response.data;
   }
-
-  /**
+	
+	/**
    * Update a meter
    * Updates a meter.
    */
@@ -49,5 +49,5 @@ export class Meters {
     const response = await this.client.put<MeterResponse>(`/meters/${id}`, data);
     return response.data;
   }
-
+	
 }

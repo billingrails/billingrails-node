@@ -16,8 +16,8 @@ import type {
  */
 export class Accounts {
   constructor(private readonly client: AxiosInstance) {}
-
-  /**
+	
+	/**
    * List accounts
    * Retrieve a list of accounts.
    */
@@ -25,8 +25,8 @@ export class Accounts {
     const response = await this.client.get<AccountListResponse>(`/accounts`, { params });
     return response.data;
   }
-
-  /**
+	
+	/**
    * Create an account
    * Creates an account.
    */
@@ -34,8 +34,8 @@ export class Accounts {
     const response = await this.client.post<AccountResponse>(`/accounts`, data);
     return response.data;
   }
-
-  /**
+	
+	/**
    * Retrieve an account
    * Retrieves an account by ID.
    */
@@ -43,8 +43,8 @@ export class Accounts {
     const response = await this.client.get<AccountResponse>(`/accounts/${id}`, { params });
     return response.data;
   }
-
-  /**
+	
+	/**
    * Update an account
    * Updates an account.
    */
@@ -52,8 +52,8 @@ export class Accounts {
     const response = await this.client.put<AccountResponse>(`/accounts/${id}`, data);
     return response.data;
   }
-
-  /**
+	
+	/**
    * Get balances
    * Retrieve credit balances for an account.
    */
@@ -61,8 +61,8 @@ export class Accounts {
     const response = await this.client.get<AccountBalancesResponse>(`/accounts/${id}/balances`, { params });
     return response.data;
   }
-
-  /**
+	
+	/**
    * Debit balance
    * Debits an account's balance.
    */
@@ -70,5 +70,5 @@ export class Accounts {
     const response = await this.client.post<AccountDebitResponse>(`/accounts/${id}/debit`, data);
     return response.data;
   }
-
+	
 }

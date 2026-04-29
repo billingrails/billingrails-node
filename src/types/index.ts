@@ -91,3 +91,4 @@ export * from './subscription-input';
 export * from './subscription-list-response';
 export * from './subscription-response';
 export * from './subscription-update';
+export * from './tax-amount-details';

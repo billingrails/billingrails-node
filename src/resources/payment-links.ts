@@ -13,8 +13,8 @@ import type {
  */
 export class PaymentLinks {
   constructor(private readonly client: AxiosInstance) {}
-
-  /**
+	
+	/**
    * List payment links
    * Retrieves a list of payment links.
    */
@@ -22,8 +22,8 @@ export class PaymentLinks {
     const response = await this.client.get<PaymentLinkListResponse>(`/payment_links`, { params });
     return response.data;
   }
-
-  /**
+	
+	/**
    * Create payment link
    * Creates a new payment link.
    */
@@ -31,8 +31,8 @@ export class PaymentLinks {
     const response = await this.client.post<PaymentLinkResponse>(`/payment_links`, data);
     return response.data;
   }
-
-  /**
+	
+	/**
    * Retrieve payment link
    * Retrieves a payment link by ID.
    */
@@ -40,8 +40,8 @@ export class PaymentLinks {
     const response = await this.client.get<PaymentLinkResponse>(`/payment_links/${id}`, { params });
     return response.data;
   }
-
-  /**
+	
+	/**
    * Update payment link
    * Updates a payment link.
    */
@@ -49,5 +49,5 @@ export class PaymentLinks {
     const response = await this.client.put<PaymentLinkResponse>(`/payment_links/${id}`, data);
     return response.data;
   }
-
+	
 }

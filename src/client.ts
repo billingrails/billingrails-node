@@ -65,7 +65,7 @@ export class Billingrails {
   constructor(config: BillingrailsConfig) {
     const {
       apiKey,
-      baseUrl = 'https://api.sandbox.billingrails.com/v1',
+      baseUrl = 'https://api.billingrails.com/v1',
       timeout = 30000,
       maxRetries = 3,
       axiosConfig = {},

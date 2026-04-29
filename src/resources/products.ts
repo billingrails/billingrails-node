@@ -13,8 +13,8 @@ import type {
  */
 export class Products {
   constructor(private readonly client: AxiosInstance) {}
-
-  /**
+	
+	/**
    * List products
    * Retrieves a list of products.
    */
@@ -22,8 +22,8 @@ export class Products {
     const response = await this.client.get<ProductListResponse>(`/products`, { params });
     return response.data;
   }
-
-  /**
+	
+	/**
    * Create a product
    * Creates a product.
    */
@@ -31,8 +31,8 @@ export class Products {
     const response = await this.client.post<ProductResponse>(`/products`, data);
     return response.data;
   }
-
-  /**
+	
+	/**
    * Retrieve a product
    * Retrieves product by ID.
    */
@@ -40,8 +40,8 @@ export class Products {
     const response = await this.client.get<ProductResponse>(`/products/${id}`, { params });
     return response.data;
   }
-
-  /**
+	
+	/**
    * Update a product
    * Updates a product.
    */
@@ -49,8 +49,8 @@ export class Products {
     const response = await this.client.put<ProductResponse>(`/products/${id}`, data);
     return response.data;
   }
-
-  /**
+	
+	/**
    * Archive a product
    * Archives a product.
    */
@@ -58,8 +58,8 @@ export class Products {
     const response = await this.client.post<ProductResponse>(`/products/${id}/archive`, {});
     return response.data;
   }
-
-  /**
+	
+	/**
    * Unarchive a product
    * Restores an archived product.
    */
@@ -67,5 +67,5 @@ export class Products {
     const response = await this.client.post<ProductResponse>(`/products/${id}/unarchive`, {});
     return response.data;
   }
-
+	
 }

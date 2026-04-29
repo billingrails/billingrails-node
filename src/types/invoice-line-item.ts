@@ -5,6 +5,8 @@ export interface InvoiceLineItem {
   object?: 'invoice_line_item';
   /** ID of the invoice item. */
   id?: string;
+  /** ID of the usage event associated with this line item, if any. */
+  event_id?: string | null;
   /** Name of the invoice item. */
   name?: string;
   /** Description of the invoice item. */
