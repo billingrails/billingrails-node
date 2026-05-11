@@ -46,7 +46,16 @@ export class Products {
    * Updates a product.
    */
   async update(id: string, data: ProductUpdate): Promise<ProductResponse> {
-    const response = await this.client.put<ProductResponse>(`/products/${id}`, data);
+    const response = await this.client.patch<ProductResponse>(`/products/${id}`, data);
+    return response.data;
+  }
+	
+	/**
+   * Delete a product
+   * Deletes a product when it is not used in any subscription and not referenced on invoices.
+   */
+  async delete(id: string): Promise<unknown> {
+    const response = await this.client.delete<unknown>(`/products/${id}`);
     return response.data;
   }
 	

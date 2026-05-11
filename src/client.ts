@@ -15,8 +15,12 @@ import { Prices } from './resources/prices';
 import { Products } from './resources/products';
 import { Subscriptions } from './resources/subscriptions';
 import { TaxRates } from './resources/tax-rates';
+import pkg from '../package.json';
+import { Charges } from './resources/charges';
+import { CreditAssets } from './resources/credit-assets';
 
 type RetryRequestConfig = InternalAxiosRequestConfig & { __attempt?: number };
+const USER_AGENT = `Billingrails Node SDK/${pkg.version}`;
 
 /**
  * Configuration options for the Billingrails client
@@ -47,6 +51,7 @@ export class Billingrails {
 
   public readonly accounts: Accounts;
   public readonly invoices: Invoices;
+  public readonly charges: Charges;
   public readonly payments: Payments;
   public readonly paymentLinks: PaymentLinks;
   public readonly checkoutSessions: CheckoutSessions;
@@ -59,6 +64,7 @@ export class Billingrails {
   public readonly meters: Meters;
 
   public readonly creditGrants: CreditGrants;
+  public readonly creditAssets: CreditAssets;
   public readonly discounts: Discounts;
   public readonly taxRates: TaxRates;
 
@@ -82,6 +88,7 @@ export class Billingrails {
       baseURL: baseUrl,
       timeout,
       headers: {
+        'User-Agent': USER_AGENT,
         'Content-Type': 'application/json',
         Authorization: `Bearer ${apiKey}`,
       },
@@ -129,6 +136,7 @@ export class Billingrails {
     // Initialize resources
     this.accounts = new Accounts(this.client);
     this.invoices = new Invoices(this.client);
+    this.charges = new Charges(this.client);
     this.payments = new Payments(this.client);
     this.paymentLinks = new PaymentLinks(this.client);
     this.checkoutSessions = new CheckoutSessions(this.client);
@@ -141,6 +149,7 @@ export class Billingrails {
     this.meters = new Meters(this.client);
 
     this.creditGrants = new CreditGrants(this.client);
+    this.creditAssets = new CreditAssets(this.client);
     this.discounts = new Discounts(this.client);
     this.taxRates = new TaxRates(this.client);
   }

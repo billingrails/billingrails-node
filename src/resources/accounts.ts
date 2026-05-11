@@ -49,7 +49,7 @@ export class Accounts {
    * Updates an account.
    */
   async update(id: string, data: AccountUpdate): Promise<AccountResponse> {
-    const response = await this.client.put<AccountResponse>(`/accounts/${id}`, data);
+    const response = await this.client.patch<AccountResponse>(`/accounts/${id}`, data);
     return response.data;
   }
 	
@@ -66,8 +66,8 @@ export class Accounts {
    * Debit balance
    * Debits an account's balance.
    */
-  async debit(id: string, data: AccountDebit): Promise<AccountDebitResponse> {
-    const response = await this.client.post<AccountDebitResponse>(`/accounts/${id}/debit`, data);
+  async debitBalance(id: string, data: AccountDebit): Promise<AccountDebitResponse> {
+    const response = await this.client.post<AccountDebitResponse>(`/accounts/${id}/debit_balance`, data);
     return response.data;
   }
 	

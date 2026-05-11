@@ -46,7 +46,34 @@ export class Meters {
    * Updates a meter.
    */
   async update(id: string, data: MeterUpdate): Promise<MeterResponse> {
-    const response = await this.client.put<MeterResponse>(`/meters/${id}`, data);
+    const response = await this.client.patch<MeterResponse>(`/meters/${id}`, data);
+    return response.data;
+  }
+	
+	/**
+   * Delete a meter
+   * Deletes a meter when no subscription uses a price associated with it.
+   */
+  async delete(id: string): Promise<unknown> {
+    const response = await this.client.delete<unknown>(`/meters/${id}`);
+    return response.data;
+  }
+	
+	/**
+   * Archive a meter
+   * Archives a meter.
+   */
+  async archive(id: string): Promise<MeterResponse> {
+    const response = await this.client.post<MeterResponse>(`/meters/${id}/archive`, {});
+    return response.data;
+  }
+	
+	/**
+   * Unarchive a meter
+   * Restores an archived meter.
+   */
+  async unarchive(id: string): Promise<MeterResponse> {
+    const response = await this.client.post<MeterResponse>(`/meters/${id}/unarchive`, {});
     return response.data;
   }
 	

@@ -46,7 +46,7 @@ export class TaxRates {
    * Updates a tax rate.
    */
   async update(id: string, data: TaxRateUpdate): Promise<TaxRateResponse> {
-    const response = await this.client.put<TaxRateResponse>(`/tax_rates/${id}`, data);
+    const response = await this.client.patch<TaxRateResponse>(`/tax_rates/${id}`, data);
     return response.data;
   }
 	
@@ -65,6 +65,15 @@ export class TaxRates {
    */
   async archive(id: string): Promise<TaxRateResponse> {
     const response = await this.client.post<TaxRateResponse>(`/tax_rates/${id}/archive`, {});
+    return response.data;
+  }
+	
+	/**
+   * Unarchive a tax rate
+   * Unarchives a tax rate.
+   */
+  async unarchive(id: string): Promise<TaxRateResponse> {
+    const response = await this.client.post<TaxRateResponse>(`/tax_rates/${id}/unarchive`, {});
     return response.data;
   }
 	

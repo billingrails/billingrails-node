@@ -29,4 +29,6 @@ export interface CreditGrantCreate {
   return_url?: string;
   /** Key-value pairs that can be used to store additional information. */
   metadata?: Record<string, unknown> | null;
+  /** Catalog product IDs this grant applies to. Omit or empty for unrestricted (any product). */
+  product_ids?: string[];
 }

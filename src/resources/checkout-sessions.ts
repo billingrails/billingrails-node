@@ -36,7 +36,7 @@ export class CheckoutSessions {
    * Updates a checkout session.
    */
   async update(id: string, data: CheckoutSessionUpdate): Promise<CheckoutSessionResponse> {
-    const response = await this.client.put<CheckoutSessionResponse>(`/checkout_sessions/${id}`, data);
+    const response = await this.client.patch<CheckoutSessionResponse>(`/checkout_sessions/${id}`, data);
     return response.data;
   }
 	

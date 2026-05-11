@@ -9,7 +9,7 @@ export interface Product {
   id?: string;
   /** Name of the product. */
   name?: string;
-  /** Internal identifier of the product. */
+  /** Unique identifier for the product. */
   code?: string;
   /** Status of the product. */
   status?: 'draft' | 'active' | 'archived';

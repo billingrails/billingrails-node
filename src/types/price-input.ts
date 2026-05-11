@@ -6,6 +6,8 @@ import type { Interval } from './index';
  * Price configuration for a product.
  */
 export interface PriceInput {
+  /** Optional unique code for this price. */
+  code?: string | null;
   /** Amount in currency subunits (for flat, package, or per-unit pricing). Supports fractional subunits. */
   amount?: number | null;
   /** Currency code. */

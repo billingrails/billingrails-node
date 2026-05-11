@@ -5,8 +5,8 @@ export interface MeterProfile {
   id?: string;
   /** Name of the meter profile. */
   name: string;
-  /** Code identifier of the meter profile. */
-  code: string;
+  /** Unique identifier for the meter profile. */
+  code?: string;
   /** Defines if the meter is persisted billing period over billing period. */
   recurring: boolean;
   /** Specifies the method for aggregating matching events. */

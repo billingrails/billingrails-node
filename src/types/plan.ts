@@ -6,6 +6,7 @@ export interface Plan {
   object?: 'plan';
   id?: string;
   created_at?: string;
+  /** Unique identifier for the plan. */
   code?: string;
   name?: string;
   description?: string | null;

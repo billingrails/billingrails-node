@@ -3,6 +3,6 @@
 import type { ProductInput } from './index';
 
 export interface ProductCreate extends ProductInput {
-  /** Internal identifier of the product. */
-  code: string;
+  /** Optional unique identifier for the product. */
+  code?: string | null;
 }

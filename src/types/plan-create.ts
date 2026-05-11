@@ -3,6 +3,7 @@
 import type { PlanInput } from './index';
 
 export interface PlanCreate extends PlanInput {
-  code: string;
+  /** Optional unique identifier for the plan. */
+  code?: string | null;
   account_id?: string | null;
 }

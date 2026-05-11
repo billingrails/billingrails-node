@@ -46,7 +46,7 @@ export class Subscriptions {
    * Updates a subscription.
    */
   async update(id: string, data: SubscriptionCreate): Promise<SubscriptionResponse> {
-    const response = await this.client.put<SubscriptionResponse>(`/subscriptions/${id}`, data);
+    const response = await this.client.patch<SubscriptionResponse>(`/subscriptions/${id}`, data);
     return response.data;
   }
 	

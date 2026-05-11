@@ -46,7 +46,25 @@ export class Discounts {
    * Updates a discount.
    */
   async update(id: string, data: DiscountUpdate): Promise<DiscountResponse> {
-    const response = await this.client.put<DiscountResponse>(`/discounts/${id}`, data);
+    const response = await this.client.patch<DiscountResponse>(`/discounts/${id}`, data);
+    return response.data;
+  }
+	
+	/**
+   * Archive a discount
+   * Archives a discount.
+   */
+  async archive(id: string): Promise<DiscountResponse> {
+    const response = await this.client.post<DiscountResponse>(`/discounts/${id}/archive`, {});
+    return response.data;
+  }
+	
+	/**
+   * Unarchive a discount
+   * Unarchives a discount.
+   */
+  async unarchive(id: string): Promise<DiscountResponse> {
+    const response = await this.client.post<DiscountResponse>(`/discounts/${id}/unarchive`, {});
     return response.data;
   }
 	

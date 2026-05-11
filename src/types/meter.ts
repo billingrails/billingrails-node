@@ -14,7 +14,7 @@ export interface Meter {
   /** Internal description of the meter. */
   description?: string;
   /** Status of the meter. */
-  status?: 'active' | 'inactive';
+  status?: 'active' | 'archived';
   /** Defines the connection between event data and Billingrails accounts. */
   account_mapping?: { type: 'id' | 'email' | 'external_id'; event_property: string; };
   /** Timestamp indicating when the object was created. */

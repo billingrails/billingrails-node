@@ -59,6 +59,15 @@ export class CreditGrants {
   }
 	
 	/**
+   * Void credit grant
+   * Voids a credit grant that is pending or granted with its full balance unused.
+   */
+  async void(id: string): Promise<CreditGrantResponse> {
+    const response = await this.client.post<CreditGrantResponse>(`/credit_grants/${id}/void`, {});
+    return response.data;
+  }
+	
+	/**
    * Reverse credit grant transaction
    * Reverses a credit grant usage.
    */

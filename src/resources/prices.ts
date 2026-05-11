@@ -46,7 +46,7 @@ export class Prices {
    * Updates a price by ID.
    */
   async update(id: string, data: PriceUpdate): Promise<PriceResponse> {
-    const response = await this.client.put<PriceResponse>(`/prices/${id}`, data);
+    const response = await this.client.patch<PriceResponse>(`/prices/${id}`, data);
     return response.data;
   }
 	

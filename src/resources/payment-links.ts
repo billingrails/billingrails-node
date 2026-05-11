@@ -46,7 +46,7 @@ export class PaymentLinks {
    * Updates a payment link.
    */
   async update(id: string, data: PaymentLinkUpdate): Promise<PaymentLinkResponse> {
-    const response = await this.client.put<PaymentLinkResponse>(`/payment_links/${id}`, data);
+    const response = await this.client.patch<PaymentLinkResponse>(`/payment_links/${id}`, data);
     return response.data;
   }
 	

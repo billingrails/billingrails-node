@@ -46,7 +46,7 @@ export class Plans {
    * Updates a plan.
    */
   async update(id: string, data: PlanUpdate): Promise<PlanResponse> {
-    const response = await this.client.put<PlanResponse>(`/plans/${id}`, data);
+    const response = await this.client.patch<PlanResponse>(`/plans/${id}`, data);
     return response.data;
   }
 	

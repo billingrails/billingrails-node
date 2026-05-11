@@ -46,7 +46,7 @@ export class Invoices {
    * Updates an invoice.
    */
   async update(id: string, data: InvoiceUpdate): Promise<InvoiceResponse> {
-    const response = await this.client.put<InvoiceResponse>(`/invoices/${id}`, data);
+    const response = await this.client.patch<InvoiceResponse>(`/invoices/${id}`, data);
     return response.data;
   }
 	

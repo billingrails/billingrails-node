@@ -25,4 +25,6 @@ export interface CreditGrant {
   effective_at?: string | null;
   /** Date when the credit grant expires. */
   expires_at?: string | null;
+  /** Catalog product IDs this grant applies to. Omit or empty for unrestricted (any product). */
+  product_ids?: string[];
 }
